@@ -2,7 +2,7 @@
 
 <img alt="WebComponent PWC Chat" src="assets/logo.png" />
 
-[![Fully customizable Chat for web component with StencilJS via Paraboly](https://img.shields.io/badge/-Fully%20customizable%20readme%20boilerplate%20for%20web%20component%20with%20StencilJS%20via%20Paraboly-lightgrey?style=for-the-badge)](https://github.com/Paraboly/pwc-chat)
+[![Fully customizable Chat for web component with StencilJS via Paraboly](https://img.shields.io/badge/-Fully%20customizable%20Chat%20for%20web%20component%20with%20StencilJS%20via%20Paraboly-lightgrey?style=for-the-badge)](https://github.com/Paraboly/pwc-chat)
 
 [![npm version](https://img.shields.io/npm/v/@paraboly/pwc-chat.svg?style=for-the-badge)](https://www.npmjs.com/package/@paraboly/pwc-chat)
 [![npm](https://img.shields.io/npm/dt/@paraboly/pwc-chat.svg?style=for-the-badge)](https://www.npmjs.com/package/@paraboly/pwc-chat)
