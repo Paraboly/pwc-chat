@@ -10,27 +10,41 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface PwcChatList {}
+  interface PwcChat {
+    'fullMessage': string;
+    'messageList': any;
+  }
 }
 
 declare global {
 
 
-  interface HTMLPwcChatListElement extends Components.PwcChatList, HTMLStencilElement {}
-  var HTMLPwcChatListElement: {
-    prototype: HTMLPwcChatListElement;
-    new (): HTMLPwcChatListElement;
+  interface HTMLPwcChatElement extends Components.PwcChat, HTMLStencilElement {}
+  var HTMLPwcChatElement: {
+    prototype: HTMLPwcChatElement;
+    new (): HTMLPwcChatElement;
   };
   interface HTMLElementTagNameMap {
-    'pwc-chat-list': HTMLPwcChatListElement;
+    'pwc-chat': HTMLPwcChatElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface PwcChatList {}
+  interface PwcChat {
+    'fullMessage'?: string;
+    'messageList'?: any;
+    /**
+    * onChange method for text input
+    */
+    'onOnChangeMessage'?: (event: CustomEvent<any>) => void;
+    /**
+    * onSubmit method for text input
+    */
+    'onOnSubmitMessage'?: (event: CustomEvent<any>) => void;
+  }
 
   interface IntrinsicElements {
-    'pwc-chat-list': PwcChatList;
+    'pwc-chat': PwcChat;
   }
 }
 
@@ -40,7 +54,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'pwc-chat-list': LocalJSX.PwcChatList & JSXBase.HTMLAttributes<HTMLPwcChatListElement>;
+      'pwc-chat': LocalJSX.PwcChat & JSXBase.HTMLAttributes<HTMLPwcChatElement>;
     }
   }
 }
