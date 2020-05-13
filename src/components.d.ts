@@ -38,11 +38,11 @@ declare namespace LocalJSX {
     /**
     * onChange method for text input
     */
-    'onOnChangeMessage'?: (event: CustomEvent<any>) => void;
+    'onChangeMessage'?: (event: CustomEvent<any>) => void;
     /**
     * onSubmit method for text input
     */
-    'onOnSubmitMessage'?: (event: CustomEvent<any>) => void;
+    'onSubmitMessage'?: (event: CustomEvent<any>) => void;
     'submitButtonName'?: string;
     'submitButtonPlaceholder'?: string;
   }

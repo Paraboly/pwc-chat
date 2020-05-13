@@ -5,11 +5,20 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+| Property                  | Attribute                   | Description | Type     | Default                                   |
+| ------------------------- | --------------------------- | ----------- | -------- | ----------------------------------------- |
+| `fullMessage`             | `full-message`              |             | `string` | `null`                                    |
+| `messageList`             | `message-list`              |             | `any`    | `[]`                                      |
+| `submitButtonName`        | `submit-button-name`        |             | `string` | `"Send"`                                  |
+| `submitButtonPlaceholder` | `submit-button-placeholder` |             | `string` | `"You can write your message in here..."` |
+
+
+## Events
+
+| Event           | Description                    | Type               |
+| --------------- | ------------------------------ | ------------------ |
+| `changeMessage` | onChange method for text input | `CustomEvent<any>` |
+| `submitMessage` | onSubmit method for text input | `CustomEvent<any>` |
 
 
 ----------------------------------------------

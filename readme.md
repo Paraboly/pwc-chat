@@ -12,6 +12,9 @@
 <p align="center">
   <img alt="WebComponent PWC Chat"
         src="assets/Screenshots/example.png" />
+  <img alt="WebComponent PWC Chat"
+        src="assets/Screenshots/example.gif" />
+
 </p>
 
 <!-- ## [Live Codepen Example](https://codepen.io/wrathchaos/pen/dyyvRzM) -->
@@ -62,8 +65,8 @@ MessageList should be this format:
 
 ```jsx
 <pwc-chat
-  onChangeMessage={text => console.log("onChangeMessage: ", text)}
-  onSubmitMessage={fullText => console.log("onSubmit: ", fullText)}
+  changeMessage={text => console.log("onChangeMessage: ", text)}
+  submitMessage={fullText => console.log("onSubmit: ", fullText)}
   messageList={[
     {
       username: "Leo",
@@ -95,11 +98,11 @@ This is just an example from pwc-chat, you need to change it!
 ```js
 // onChangeMessage
 const pwcChat = document.querySelector("pwc-chat");
-pwcChat.addEventListener("onChangeMessage", text => {
+pwcChat.addEventListener("changeMessage", text => {
   console.log("Chat Text: ", text);
 });
 // onSubmitMessage
-pwcChat.addEventListener("onSubmitMessage", fullText => {
+pwcChat.addEventListener("submitMessage", fullText => {
   console.log("Chat onSubmit: ", fullText);
 });
 ```

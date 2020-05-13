@@ -17,7 +17,7 @@ export class Chat {
    * onChange method for text input
    */
   @Event({
-    eventName: "onChangeMessage",
+    eventName: "changeMessage",
     bubbles: true,
     composed: true,
     cancelable: true
@@ -37,7 +37,7 @@ export class Chat {
    * onSubmit method for text input
    */
   @Event({
-    eventName: "onSubmitMessage",
+    eventName: "submitMessage",
     bubbles: true,
     composed: true,
     cancelable: true
