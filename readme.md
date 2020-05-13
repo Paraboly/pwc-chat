@@ -54,14 +54,15 @@
 
 ## Basic Usage
 
-MessageList should be this format:
+Message List should be this format:
 
 ```json
 [
   { username: "", message: "" },
-  ...
 ];
 ```
+
+#### Here is the example
 
 ```jsx
 <pwc-chat
