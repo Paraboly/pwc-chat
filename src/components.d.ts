@@ -10,53 +10,27 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface ComponentName {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
+  interface PwcChatList {}
 }
 
 declare global {
 
 
-  interface HTMLComponentNameElement extends Components.ComponentName, HTMLStencilElement {}
-  var HTMLComponentNameElement: {
-    prototype: HTMLComponentNameElement;
-    new (): HTMLComponentNameElement;
+  interface HTMLPwcChatListElement extends Components.PwcChatList, HTMLStencilElement {}
+  var HTMLPwcChatListElement: {
+    prototype: HTMLPwcChatListElement;
+    new (): HTMLPwcChatListElement;
   };
   interface HTMLElementTagNameMap {
-    'component-name': HTMLComponentNameElement;
+    'pwc-chat-list': HTMLPwcChatListElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface ComponentName {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
+  interface PwcChatList {}
 
   interface IntrinsicElements {
-    'component-name': ComponentName;
+    'pwc-chat-list': PwcChatList;
   }
 }
 
@@ -66,7 +40,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'component-name': LocalJSX.ComponentName & JSXBase.HTMLAttributes<HTMLComponentNameElement>;
+      'pwc-chat-list': LocalJSX.PwcChatList & JSXBase.HTMLAttributes<HTMLPwcChatListElement>;
     }
   }
 }
