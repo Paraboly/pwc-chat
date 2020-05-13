@@ -12,7 +12,7 @@ export class ChatList {
       <div>
         <div class="header-container">
           <strong>Username</strong>
-          <span class="time-style">3 saat önce</span>
+          <span class="time-style">3 hours ago</span>
         </div>
         <div>
           <div class="chat-bubble-container">
