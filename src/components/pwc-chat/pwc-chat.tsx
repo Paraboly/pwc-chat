@@ -8,6 +8,9 @@ import { Component, Event, Prop, h, EventEmitter } from "@stencil/core";
 export class Chat {
   textInputRef: HTMLInputElement;
 
+  @Prop() submitButtonName: string = "Send";
+  @Prop() submitButtonPlaceholder: string =
+    "You can write your message in here...";
   @Prop() fullMessage: string = null;
   @Prop() messageList: any = [
     {
@@ -89,7 +92,6 @@ export class Chat {
   }
 
   renderMessageList = () => {
-    console.log("messageList: ", this.messageList);
     return this.messageList.map(item => {
       const {
         username = "Mia Garcia",
@@ -112,7 +114,7 @@ export class Chat {
           <input
             type="text"
             class="input-field"
-            placeholder="You can write your message in here..."
+            placeholder={this.submitButtonPlaceholder}
             ref={el => (this.textInputRef = el as HTMLInputElement)}
             onInput={() => this.onChangeHandler(this.textInputRef.value)}
           />
@@ -120,9 +122,8 @@ export class Chat {
         </div>
         <div class="submit-container">
           <button
-            type="button"
-            value="Send"
             class="submit-btn"
+            value={this.submitButtonName}
             onClick={() => this.onSubmitHandler()}
           >
             Send

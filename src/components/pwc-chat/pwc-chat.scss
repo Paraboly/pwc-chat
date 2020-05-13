@@ -15,7 +15,7 @@
 }
 
 .box {
-  margin: 20px;
+  margin: 16px;
   display: flex;
   padding: 1.5rem;
   overflow: hidden;
@@ -73,10 +73,16 @@
       outline: none;
       padding: 24px;
       line-height: 1;
-      color: #b7bcdd;
+      color: #3b4378;
       border-radius: 8px;
       background-color: #fff;
       -webkit-tap-highlight-color: transparent;
+
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #b7bcdd;
+        opacity: 1; /* Firefox */
+      }
 
       &::-webkit-input-placeholder {
         color: #b7bcdd;

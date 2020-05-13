@@ -13,6 +13,8 @@ export namespace Components {
   interface PwcChat {
     'fullMessage': string;
     'messageList': any;
+    'submitButtonName': string;
+    'submitButtonPlaceholder': string;
   }
 }
 
@@ -41,6 +43,8 @@ declare namespace LocalJSX {
     * onSubmit method for text input
     */
     'onOnSubmitMessage'?: (event: CustomEvent<any>) => void;
+    'submitButtonName'?: string;
+    'submitButtonPlaceholder'?: string;
   }
 
   interface IntrinsicElements {
