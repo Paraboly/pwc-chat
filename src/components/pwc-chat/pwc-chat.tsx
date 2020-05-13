@@ -12,47 +12,7 @@ export class Chat {
   @Prop() submitButtonPlaceholder: string =
     "You can write your message in here...";
   @Prop() fullMessage: string = null;
-  @Prop() messageList: any = [
-    {
-      username: "Leo",
-      message: "No Content"
-    },
-    {
-      username: "Mia",
-      message:
-        "Aliquam tempor, mi a elementum molestie, mauris augue congue ipsum, eget suscipit ligula eros a tortor. Nullam dictum ac nibh at eleifend. Fusce iaculis mauris turpis, eu facilisis ante porta sed. Quisque faucibus felis id justo aliquet, ut viverra purus ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut elit elit, imperdiet ac eros sit amet, tincidunt euismod leo. Ut consectetur nulla a mauris vehicula, in ultrices nisl semper."
-    },
-    {
-      username: "George",
-      message: "Pellentesque luctus purus magna."
-    },
-    {
-      username: "Leo",
-      message: "No Content"
-    },
-    {
-      username: "Mia",
-      message:
-        "Aliquam tempor, mi a elementum molestie, mauris augue congue ipsum, eget suscipit ligula eros a tortor. Nullam dictum ac nibh at eleifend. Fusce iaculis mauris turpis, eu facilisis ante porta sed. Quisque faucibus felis id justo aliquet, ut viverra purus ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut elit elit, imperdiet ac eros sit amet, tincidunt euismod leo. Ut consectetur nulla a mauris vehicula, in ultrices nisl semper."
-    },
-    {
-      username: "George",
-      message: "Pellentesque luctus purus magna."
-    },
-    {
-      username: "Leo",
-      message: "No Content"
-    },
-    {
-      username: "Mia",
-      message:
-        "Aliquam tempor, mi a elementum molestie, mauris augue congue ipsum, eget suscipit ligula eros a tortor. Nullam dictum ac nibh at eleifend. Fusce iaculis mauris turpis, eu facilisis ante porta sed. Quisque faucibus felis id justo aliquet, ut viverra purus ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut elit elit, imperdiet ac eros sit amet, tincidunt euismod leo. Ut consectetur nulla a mauris vehicula, in ultrices nisl semper."
-    },
-    {
-      username: "George",
-      message: "Pellentesque luctus purus magna."
-    }
-  ];
+  @Prop() messageList: any = [];
   /**
    * onChange method for text input
    */
@@ -121,12 +81,8 @@ export class Chat {
           <div class="input-field-shadow"></div>
         </div>
         <div class="submit-container">
-          <button
-            class="submit-btn"
-            value={this.submitButtonName}
-            onClick={() => this.onSubmitHandler()}
-          >
-            Send
+          <button class="submit-btn" onClick={() => this.onSubmitHandler()}>
+            {this.submitButtonName}
           </button>
         </div>
       </div>
