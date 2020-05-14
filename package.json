@@ -1,6 +1,6 @@
 {
   "name": "@paraboly/pwc-chat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Beautiful chat component for Web via Paraboly with Stencil",
   "keywords": [
     "freakycoder",
