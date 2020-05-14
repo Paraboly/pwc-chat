@@ -55,13 +55,14 @@ export class Chat {
     return this.messageList.map(item => {
       const {
         username = "Mia Garcia",
-        message = "Etiam ultrices ullamcorper mauris, a ultrices urna varius vitae. Nullam non aliquet magna."
+        message = "Etiam ultrices ullamcorper mauris, a ultrices urna varius vitae. Nullam non aliquet magna.",
+        time = "3 hours ago"
       } = item;
       return (
         <div class="box">
           <h2>{username}</h2>
           <p>{message}</p>
-          <span class="time">3 hours ago</span>
+          <span class="time">{time}</span>
         </div>
       );
     });
