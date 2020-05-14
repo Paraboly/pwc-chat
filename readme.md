@@ -71,20 +71,24 @@ Message List should be this format:
   messageList={[
     {
       username: "Leo",
-      message: "No Content"
+      message: "No Content",
+      time: "3 hours ago"
     },
     {
       username: "Mia",
       message:
-        "Aliquam tempor, mi a elementum molestie, mauris augue congue ipsum, eget suscipit ligula eros a tortor. Nullam dictum ac nibh at eleifend. Fusce iaculis mauris turpis, eu facilisis ante porta sed. Quisque faucibus felis id justo aliquet, ut viverra purus ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut elit elit, imperdiet ac eros sit amet, tincidunt euismod leo. Ut consectetur nulla a mauris vehicula, in ultrices nisl semper."
+        "Aliquam tempor, mi a elementum molestie, mauris augue congue ipsum, eget suscipit ligula eros a tortor. Nullam dictum ac nibh at eleifend. Fusce iaculis mauris turpis, eu facilisis ante porta sed. Quisque faucibus felis id justo aliquet, ut viverra purus ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut elit elit, imperdiet ac eros sit amet, tincidunt euismod leo. Ut consectetur nulla a mauris vehicula, in ultrices nisl semper.",
+      time: "1 hour ago"
     },
     {
       username: "George",
-      message: "Pellentesque luctus purus magna."
+      message: "Pellentesque luctus purus magna.",
+      time: ""
     },
     {
       username: "Leo",
-      message: "No Content"
+      message: "No Content",
+      time: "3 weeks ago"
     }
   ]}
 ></pwc-chat>
