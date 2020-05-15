@@ -54,6 +54,7 @@ export class Chat {
     this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
     this.inputValue = "";
     this.fullMessage = "";
+    this.textInputRef.value = null;
   }
 
   renderMessageList = () => {
