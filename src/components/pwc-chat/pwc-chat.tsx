@@ -13,6 +13,7 @@ export class Chat {
     "You can write your message in here...";
   @Prop() fullMessage: string = null;
   @Prop() messageList: any = [];
+  @Prop() inputValue: any = "";
   /**
    * onChange method for text input
    */
@@ -75,6 +76,7 @@ export class Chat {
           <input
             type="text"
             class="input-field"
+            value={this.inputValue}
             placeholder={this.submitButtonPlaceholder}
             ref={el => (this.textInputRef = el as HTMLInputElement)}
             onInput={() => this.onChangeHandler(this.textInputRef.value)}
