@@ -8,6 +8,7 @@
 | Property                  | Attribute                   | Description | Type     | Default                                   |
 | ------------------------- | --------------------------- | ----------- | -------- | ----------------------------------------- |
 | `fullMessage`             | `full-message`              |             | `string` | `null`                                    |
+| `inputValue`              | `input-value`               |             | `any`    | `""`                                      |
 | `messageList`             | `message-list`              |             | `any`    | `[]`                                      |
 | `submitButtonName`        | `submit-button-name`        |             | `string` | `"Send"`                                  |
 | `submitButtonPlaceholder` | `submit-button-placeholder` |             | `string` | `"You can write your message in here..."` |

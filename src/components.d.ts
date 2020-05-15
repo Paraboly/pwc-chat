@@ -12,6 +12,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface PwcChat {
     'fullMessage': string;
+    'inputValue': any;
     'messageList': any;
     'submitButtonName': string;
     'submitButtonPlaceholder': string;
@@ -34,6 +35,7 @@ declare global {
 declare namespace LocalJSX {
   interface PwcChat {
     'fullMessage'?: string;
+    'inputValue'?: any;
     'messageList'?: any;
     /**
     * onChange method for text input
