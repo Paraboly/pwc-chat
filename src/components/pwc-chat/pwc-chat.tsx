@@ -14,6 +14,8 @@ export class Chat {
   @Prop() fullMessage: string = null;
   @Prop() messageList: any = [];
   @Prop() inputValue: any = "";
+  @Prop() listContainerId: string = "list-container-id";
+
   /**
    * onChange method for text input
    */
@@ -96,7 +98,9 @@ export class Chat {
   render() {
     return (
       <div class="container">
-        <div class="list-container">{this.renderMessageList()}</div>
+        <div id={this.listContainerId} class="list-container">
+          {this.renderMessageList()}
+        </div>
         {this.renderSubmitButton()}
       </div>
     );

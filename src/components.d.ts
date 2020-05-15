@@ -13,6 +13,7 @@ export namespace Components {
   interface PwcChat {
     'fullMessage': string;
     'inputValue': any;
+    'listContainerId': string;
     'messageList': any;
     'submitButtonName': string;
     'submitButtonPlaceholder': string;
@@ -36,6 +37,7 @@ declare namespace LocalJSX {
   interface PwcChat {
     'fullMessage'?: string;
     'inputValue'?: any;
+    'listContainerId'?: string;
     'messageList'?: any;
     /**
     * onChange method for text input
