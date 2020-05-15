@@ -49,9 +49,9 @@ export class Chat {
    * @param text
    */
   onSubmitHandler() {
+    this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
     this.inputValue = "";
     this.fullMessage = "";
-    this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
   }
 
   renderMessageList = () => {
