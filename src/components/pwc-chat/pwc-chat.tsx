@@ -1,5 +1,5 @@
 import { Component, Event, Prop, h, EventEmitter, Listen } from "@stencil/core";
-import { IMessageItem } from "./MessageItem";
+import { IMessageItem } from "./IMessageItem";
 
 @Component({
   tag: "pwc-chat",

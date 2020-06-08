@@ -1,19 +1,21 @@
 import { Component, Prop, h, EventEmitter, Event, State } from "@stencil/core";
+import { IMessageItem } from "../pwc-chat/IMessageItem"
 
 @Component({
     tag: "pwc-chat-item",
     styleUrl: "../styles.scss",
     shadow: false
 })
-export class PwcChatITem {
+export class ChatItem implements IMessageItem {
     private editInputField: HTMLTextAreaElement;
 
     @Prop() id: string;
     @Prop() username: string;
     @Prop() message: string;
     @Prop() time: string;
-    @Prop() editable: any;
-    @Prop() deletable: any;
+    @Prop() editTime?: string;
+    @Prop() editable: boolean;
+    @Prop() deletable: boolean;
 
     @State() isEditing: boolean;
 
@@ -71,7 +73,8 @@ export class PwcChatITem {
                 </div>}
                 <h2>{this.username}</h2>
                 {this.renderBody()}
-                <span class="time">{this.time}</span>
+                <span class="time">{this.editTime && "Created "}{this.time}</span>
+                {this.editTime && <span class="time">Edited {this.editTime}</span>}
             </div>
         );
     }

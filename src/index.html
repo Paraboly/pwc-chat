@@ -50,7 +50,9 @@
         const editedId = e.detail.id;
         const newMessage = e.detail.newMessage;
         console.log("edit id:", editedId, "newMessage:", newMessage);
-        messages[messages.findIndex(m => m.id == editedId)].message = newMessage;
+        const messageIndex = messages.findIndex(m => m.id == editedId);
+        messages[messageIndex].message = newMessage;
+        messages[messageIndex].editTime = `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`;
         chatInstance.messageList = [...messages];
       });
     </script>

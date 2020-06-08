@@ -9,7 +9,7 @@
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   IMessageItem,
-} from './components/pwc-chat/MessageItem';
+} from './components/pwc-chat/IMessageItem';
 
 export namespace Components {
   interface PwcChat {
@@ -21,8 +21,9 @@ export namespace Components {
     'submitButtonPlaceholder': string;
   }
   interface PwcChatItem {
-    'deletable': any;
-    'editable': any;
+    'deletable': boolean;
+    'editTime'?: string;
+    'editable': boolean;
     'id': string;
     'message': string;
     'time': string;
@@ -68,8 +69,9 @@ declare namespace LocalJSX {
     'submitButtonPlaceholder'?: string;
   }
   interface PwcChatItem {
-    'deletable'?: any;
-    'editable'?: any;
+    'deletable'?: boolean;
+    'editTime'?: string;
+    'editable'?: boolean;
     'id'?: string;
     'message'?: string;
     'onMessageDeleted'?: (event: CustomEvent<{ id: string }>) => void;

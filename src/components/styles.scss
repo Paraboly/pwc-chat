@@ -226,6 +226,8 @@
       width: 100%;
       padding: 12px;
       line-height: 1.5;
+      border: solid 1px #ddd;
+      outline: none;
       color: #3b4378;
       background-color: #fff;
       -webkit-tap-highlight-color: transparent;
@@ -237,7 +239,6 @@
       }
 
       &::-webkit-input-placeholder {
-        color: #b7bcdd;
         padding-top: 2px;
       }
 
