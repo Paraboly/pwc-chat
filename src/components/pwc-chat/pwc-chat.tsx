@@ -66,7 +66,6 @@ export class Chat {
       return (
         <pwc-chat-item
           {...item}
-          isEditing={false}
         ></pwc-chat-item>
       );
     });

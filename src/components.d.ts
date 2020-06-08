@@ -24,7 +24,6 @@ export namespace Components {
     'deletable': any;
     'editable': any;
     'id': string;
-    'isEditing': boolean;
     'message': string;
     'time': string;
     'username': string;
@@ -72,10 +71,9 @@ declare namespace LocalJSX {
     'deletable'?: any;
     'editable'?: any;
     'id'?: string;
-    'isEditing'?: boolean;
     'message'?: string;
-    'onOnMessageDeleteClicked'?: (event: CustomEvent<{id: string}>) => void;
-    'onOnMessageEditClicked'?: (event: CustomEvent<{id: string}>) => void;
+    'onMessageDeleted'?: (event: CustomEvent<{ id: string }>) => void;
+    'onMessageEdited'?: (event: CustomEvent<{ id: string, newMessage: string }>) => void;
     'time'?: string;
     'username'?: string;
   }

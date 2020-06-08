@@ -1,4 +1,4 @@
-import { Component, Prop, h, EventEmitter, Event } from "@stencil/core";
+import { Component, Prop, h, EventEmitter, Event, State } from "@stencil/core";
 
 @Component({
     tag: "pwc-chat-item",
@@ -6,6 +6,8 @@ import { Component, Prop, h, EventEmitter, Event } from "@stencil/core";
     shadow: false
 })
 export class PwcChatITem {
+    private editInputField: HTMLInputElement;
+
     @Prop() id: string;
     @Prop() username: string;
     @Prop() message: string;
@@ -13,22 +15,41 @@ export class PwcChatITem {
     @Prop() editable: any;
     @Prop() deletable: any;
 
-    @Prop() isEditing: boolean;
+    @State() isEditing: boolean;
 
-    @Event() onMessageEditClicked: EventEmitter<{id: string}>;
-    @Event() onMessageDeleteClicked: EventEmitter<{id: string}>;
-   
+    @Event() messageDeleted: EventEmitter<{ id: string }>;
+    @Event() messageEdited: EventEmitter<{ id: string, newMessage: string }>;
+
     editOnClick(e: MouseEvent): void {
-        this.onMessageEditClicked.emit({id: this.id});
+        this.isEditing = true;
     }
 
     deleteOnClick(e: MouseEvent): void {
-        this.onMessageDeleteClicked.emit({id: this.id});
+        this.messageDeleted.emit({ id: this.id });
+    }
+
+    saveOnClick(e: MouseEvent): void {
+        const newMessage = this.editInputField.value;
+        this.isEditing = false;
+        this.message = newMessage;
+        this.messageEdited.emit({ id: this.id, newMessage });
+    }
+
+    cancelOnClick(e: MouseEvent): void {
+        this.isEditing = false;
+    }
+
+    editInputFieldRefCallback(elm?: HTMLInputElement) {
+        this.editInputField = elm;
     }
 
     renderBody() {
-        if(this.isEditing) {
-            return <input type="text" value={this.message}></input>
+        if (this.isEditing) {
+            return <div>
+                <input type="text" value={this.message} ref={this.editInputFieldRefCallback.bind(this)}></input>
+                <button onClick={this.saveOnClick.bind(this)}>Save</button>
+                <button onClick={this.cancelOnClick.bind(this)}>Cancel</button>
+            </div>
         } else {
             return <p>{this.message}</p>;
         }
@@ -37,10 +58,10 @@ export class PwcChatITem {
     render() {
         return (
             <div class="box">
-                <div class="toolbox">
+                {!this.isEditing && <div class="toolbox">
                     <button onClick={this.editOnClick.bind(this)}>Edit</button>
                     <button onClick={this.deleteOnClick.bind(this)}>Delete</button>
-                </div>
+                </div>}
                 <h2>{this.username}</h2>
                 {this.renderBody()}
                 <span class="time">{this.time} (id: {this.id})</span>
