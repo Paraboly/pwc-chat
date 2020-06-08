@@ -18,6 +18,11 @@ export namespace Components {
     'submitButtonName': string;
     'submitButtonPlaceholder': string;
   }
+  interface PwcChatItem {
+    'message': any;
+    'time': any;
+    'username': any;
+  }
 }
 
 declare global {
@@ -28,8 +33,15 @@ declare global {
     prototype: HTMLPwcChatElement;
     new (): HTMLPwcChatElement;
   };
+
+  interface HTMLPwcChatItemElement extends Components.PwcChatItem, HTMLStencilElement {}
+  var HTMLPwcChatItemElement: {
+    prototype: HTMLPwcChatItemElement;
+    new (): HTMLPwcChatItemElement;
+  };
   interface HTMLElementTagNameMap {
     'pwc-chat': HTMLPwcChatElement;
+    'pwc-chat-item': HTMLPwcChatItemElement;
   }
 }
 
@@ -50,9 +62,15 @@ declare namespace LocalJSX {
     'submitButtonName'?: string;
     'submitButtonPlaceholder'?: string;
   }
+  interface PwcChatItem {
+    'message'?: any;
+    'time'?: any;
+    'username'?: any;
+  }
 
   interface IntrinsicElements {
     'pwc-chat': PwcChat;
+    'pwc-chat-item': PwcChatItem;
   }
 }
 
@@ -63,6 +81,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'pwc-chat': LocalJSX.PwcChat & JSXBase.HTMLAttributes<HTMLPwcChatElement>;
+      'pwc-chat-item': LocalJSX.PwcChatItem & JSXBase.HTMLAttributes<HTMLPwcChatItemElement>;
     }
   }
 }

@@ -18,8 +18,22 @@
   </style>
   <body>
     <div style="height:500px">
-      <pwc-chat first="Stencil" last="'Don't call me a framework' JS">
-      </pwc-chat>
+      <pwc-chat></pwc-chat>
     </div>
+
+    <script>
+      let messages = [];
+      const chatInstance = document.querySelector("pwc-chat");
+      chatInstance.addEventListener("submitMessage", e => {
+        const message = e.detail.fullMessage;
+        const messageObj = {
+          message,
+          username: "Tom Chandler",
+          time: Date.now()
+        }
+        messages = [...messages, messageObj];
+        chatInstance.messageList = messages;
+      });
+    </script>
   </body>
 </html>

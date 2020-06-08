@@ -27,10 +27,6 @@ export class Chat {
   })
   onChangeTextEmitter: EventEmitter;
 
-  /**
-   *
-   * @param text
-   */
   onChangeHandler(text: string) {
     this.fullMessage = text;
     this.onChangeTextEmitter.emit({ text });
@@ -47,9 +43,6 @@ export class Chat {
   })
   onSubmitEmitter: EventEmitter;
 
-  /**
-   * @param text
-   */
   onSubmitHandler() {
     this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
     this.inputValue = "";
@@ -59,17 +52,10 @@ export class Chat {
 
   renderMessageList = () => {
     return this.messageList.map(item => {
-      const {
-        username = "Mia Garcia",
-        message = "Etiam ultrices ullamcorper mauris, a ultrices urna varius vitae. Nullam non aliquet magna.",
-        time = "3 hours ago"
-      } = item;
       return (
-        <div class="box">
-          <h2>{username}</h2>
-          <p>{message}</p>
-          <span class="time">{time}</span>
-        </div>
+        <pwc-chat-item
+          {...item}        
+        ></pwc-chat-item>
       );
     });
   };
@@ -96,6 +82,7 @@ export class Chat {
       </div>
     );
   };
+
   render() {
     return (
       <div class="container">
