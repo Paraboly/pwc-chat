@@ -1,4 +1,4 @@
-import { Component, Event, Prop, h, EventEmitter } from "@stencil/core";
+import { Component, Event, Prop, h, EventEmitter, Listen } from "@stencil/core";
 import { IMessageItem } from "./MessageItem";
 
 @Component({
@@ -44,6 +44,16 @@ export class Chat {
   })
   onSubmitEmitter: EventEmitter;
 
+  @Listen('onMessageEditClicked')
+  onMessageEditClickedEventHandler(event) {
+    console.log('message edit clicked:', event);
+  }
+
+  @Listen('onMessageDeleteClicked')
+  onMessageDeleteClickedEventHandler(event) {
+    console.log('message delete clicked: ', event);
+  }
+
   onSubmitHandler() {
     this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
     this.inputValue = "";
@@ -55,7 +65,8 @@ export class Chat {
     return this.messageList.map(item => {
       return (
         <pwc-chat-item
-          {...item}        
+          {...item}
+          isEditing={false}
         ></pwc-chat-item>
       );
     });

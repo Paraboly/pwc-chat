@@ -21,7 +21,10 @@ export namespace Components {
     'submitButtonPlaceholder': string;
   }
   interface PwcChatItem {
+    'deletable': any;
+    'editable': any;
     'id': string;
+    'isEditing': boolean;
     'message': string;
     'time': string;
     'username': string;
@@ -66,8 +69,13 @@ declare namespace LocalJSX {
     'submitButtonPlaceholder'?: string;
   }
   interface PwcChatItem {
+    'deletable'?: any;
+    'editable'?: any;
     'id'?: string;
+    'isEditing'?: boolean;
     'message'?: string;
+    'onOnMessageDeleteClicked'?: (event: CustomEvent<{id: string}>) => void;
+    'onOnMessageEditClicked'?: (event: CustomEvent<{id: string}>) => void;
     'time'?: string;
     'username'?: string;
   }

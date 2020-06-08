@@ -3,4 +3,6 @@ export interface IMessageItem {
   username: string;
   message: string;
   time: string;
+  editable: boolean;
+  deletable: boolean;
 }
