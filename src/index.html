@@ -22,11 +22,13 @@
     </div>
 
     <script>
+      let idCounter = 0;
       let messages = [];
       const chatInstance = document.querySelector("pwc-chat");
       chatInstance.addEventListener("submitMessage", e => {
         const message = e.detail.fullMessage;
         const messageObj = {
+          id: idCounter++,
           message,
           username: "Tom Chandler",
           time: Date.now()

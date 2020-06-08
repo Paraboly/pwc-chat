@@ -7,21 +7,24 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  IMessageItem,
+} from './components/pwc-chat/MessageItem';
 
 export namespace Components {
   interface PwcChat {
     'fullMessage': string;
     'inputValue': any;
     'listContainerId': string;
-    'messageList': any;
+    'messageList': IMessageItem[];
     'submitButtonName': string;
     'submitButtonPlaceholder': string;
   }
   interface PwcChatItem {
-    'message': any;
-    'time': any;
-    'username': any;
+    'id': string;
+    'message': string;
+    'time': string;
+    'username': string;
   }
 }
 
@@ -50,7 +53,7 @@ declare namespace LocalJSX {
     'fullMessage'?: string;
     'inputValue'?: any;
     'listContainerId'?: string;
-    'messageList'?: any;
+    'messageList'?: IMessageItem[];
     /**
     * onChange method for text input
     */
@@ -63,9 +66,10 @@ declare namespace LocalJSX {
     'submitButtonPlaceholder'?: string;
   }
   interface PwcChatItem {
-    'message'?: any;
-    'time'?: any;
-    'username'?: any;
+    'id'?: string;
+    'message'?: string;
+    'time'?: string;
+    'username'?: string;
   }
 
   interface IntrinsicElements {

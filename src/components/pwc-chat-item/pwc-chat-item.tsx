@@ -6,16 +6,17 @@ import { Component, Prop, h } from "@stencil/core";
     shadow: false
 })
 export class PwcChatITem {
-    @Prop() username: any;
-    @Prop() message: any;
-    @Prop() time: any;
+    @Prop() id: string;
+    @Prop() username: string;
+    @Prop() message: string;
+    @Prop() time: string;
 
     render() {
         return (
             <div class="box">
                 <h2>{this.username}</h2>
                 <p>{this.message}</p>
-                <span class="time">{this.time}</span>
+                <span class="time">{this.time} (id: {this.id})</span>
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import { Component, Event, Prop, h, EventEmitter } from "@stencil/core";
+import { IMessageItem } from "./MessageItem";
 
 @Component({
   tag: "pwc-chat",
@@ -12,7 +13,7 @@ export class Chat {
   @Prop() submitButtonPlaceholder: string =
     "You can write your message in here...";
   @Prop() fullMessage: string = null;
-  @Prop() messageList: any = [];
+  @Prop() messageList: IMessageItem[] = [];
   @Prop() inputValue: any = "";
   @Prop() listContainerId: string = "list-container-id";
 
