@@ -6,7 +6,7 @@ import { Component, Prop, h, EventEmitter, Event, State } from "@stencil/core";
     shadow: false
 })
 export class PwcChatITem {
-    private editInputField: HTMLInputElement;
+    private editInputField: HTMLTextAreaElement;
 
     @Prop() id: string;
     @Prop() username: string;
@@ -39,17 +39,24 @@ export class PwcChatITem {
         this.isEditing = false;
     }
 
-    editInputFieldRefCallback(elm?: HTMLInputElement) {
+    editInputFieldRefCallback(elm?: HTMLTextAreaElement) {
         this.editInputField = elm;
     }
 
     renderBody() {
         if (this.isEditing) {
-            return <div>
-                <input type="text" value={this.message} ref={this.editInputFieldRefCallback.bind(this)}></input>
-                <button onClick={this.saveOnClick.bind(this)}>Save</button>
-                <button onClick={this.cancelOnClick.bind(this)}>Cancel</button>
-            </div>
+            return [
+                <div class="edit-input">
+                    <div class="edit-input-container">
+                        <textarea class="edit-input-field" ref={this.editInputFieldRefCallback.bind(this)}>{this.message}</textarea>
+                        <div class="edit-input-field-shadow"></div>
+                    </div>
+                </div>,
+                <div class="editing-toolbox">
+                    <button class="small-btn" onClick={this.saveOnClick.bind(this)}>Save</button>
+                    <button class="small-btn" onClick={this.cancelOnClick.bind(this)}>Cancel</button>
+                </div>
+            ];
         } else {
             return <p>{this.message}</p>;
         }
@@ -59,12 +66,12 @@ export class PwcChatITem {
         return (
             <div class="box">
                 {!this.isEditing && <div class="toolbox">
-                    {this.editable && <button onClick={this.editOnClick.bind(this)}>Edit</button>}
-                    {this.deletable && <button onClick={this.deleteOnClick.bind(this)}>Delete</button>}
+                    {this.editable && <button class="small-btn" onClick={this.editOnClick.bind(this)}>Edit</button>}
+                    {this.deletable && <button class="small-btn" onClick={this.deleteOnClick.bind(this)}>Delete</button>}
                 </div>}
                 <h2>{this.username}</h2>
                 {this.renderBody()}
-                <span class="time">{this.time} (id: {this.id})</span>
+                <span class="time">{this.time}</span>
             </div>
         );
     }

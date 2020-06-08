@@ -31,7 +31,7 @@
           id: idCounter++,
           message,
           username: "Tom Chandler",
-          time: Date.now(),
+          time: `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`,
           editable: true,
           deletable: true
         }
