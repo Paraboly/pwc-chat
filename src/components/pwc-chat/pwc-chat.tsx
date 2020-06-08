@@ -44,16 +44,6 @@ export class Chat {
   })
   onSubmitEmitter: EventEmitter;
 
-  @Listen('onMessageEditClicked')
-  onMessageEditClickedEventHandler(event) {
-    console.log('message edit clicked:', event);
-  }
-
-  @Listen('onMessageDeleteClicked')
-  onMessageDeleteClickedEventHandler(event) {
-    console.log('message delete clicked: ', event);
-  }
-
   onSubmitHandler() {
     this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
     this.inputValue = "";
