@@ -59,8 +59,8 @@ export class PwcChatITem {
         return (
             <div class="box">
                 {!this.isEditing && <div class="toolbox">
-                    <button onClick={this.editOnClick.bind(this)}>Edit</button>
-                    <button onClick={this.deleteOnClick.bind(this)}>Delete</button>
+                    {this.editable && <button onClick={this.editOnClick.bind(this)}>Edit</button>}
+                    {this.deletable && <button onClick={this.deleteOnClick.bind(this)}>Delete</button>}
                 </div>}
                 <h2>{this.username}</h2>
                 {this.renderBody()}

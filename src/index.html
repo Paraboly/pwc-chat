@@ -23,8 +23,6 @@
 
     <script>
       let idCounter = 0;
-      let editableToggle = false;
-      let deletableToggle = true;
       let messages = [];
       const chatInstance = document.querySelector("pwc-chat");
       chatInstance.addEventListener("submitMessage", e => {
@@ -34,8 +32,8 @@
           message,
           username: "Tom Chandler",
           time: Date.now(),
-          editable: (editableToggle = !editableToggle),
-          deletable: (deletableToggle = !deletableToggle)
+          editable: true,
+          deletable: true
         }
         messages = [...messages, messageObj];
         chatInstance.messageList = messages;
