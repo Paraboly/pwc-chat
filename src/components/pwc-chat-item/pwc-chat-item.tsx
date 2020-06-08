@@ -2,7 +2,7 @@ import { Component, Prop, h, EventEmitter, Event, State } from "@stencil/core";
 
 @Component({
     tag: "pwc-chat-item",
-    styleUrl: "pwc-chat-item.scss",
+    styleUrl: "../styles.scss",
     shadow: false
 })
 export class PwcChatITem {

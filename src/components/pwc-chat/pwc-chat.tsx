@@ -3,7 +3,7 @@ import { IMessageItem } from "./MessageItem";
 
 @Component({
   tag: "pwc-chat",
-  styleUrl: "pwc-chat.scss",
+  styleUrl: "../styles.scss",
   shadow: false
 })
 export class Chat {
