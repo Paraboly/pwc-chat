@@ -7,16 +7,39 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  IMessageItem,
+} from './components/types/IMessageItem';
 
 export namespace Components {
   interface PwcChat {
+    'cancelButtonName': string;
+    'createdLabelNameProducer': (createdDate: string) => string;
+    'deleteButtonName': string;
+    'editButtonName': string;
+    'editedLabelNameProducer': (editedDate: string) => string;
     'fullMessage': string;
     'inputValue': any;
     'listContainerId': string;
-    'messageList': any;
+    'messageList': IMessageItem[];
+    'saveButtonName': string;
     'submitButtonName': string;
     'submitButtonPlaceholder': string;
+  }
+  interface PwcChatItem {
+    'cancelButtonName': string;
+    'createdLabelNameProducer': (createdDate: string) => string;
+    'deletable': boolean;
+    'deleteButtonName': string;
+    'editButtonName': string;
+    'editTime'?: string;
+    'editable': boolean;
+    'editedLabelNameProducer': (editedDate: string) => string;
+    'message': string;
+    'messageId': string;
+    'saveButtonName': string;
+    'time': string;
+    'username': string;
   }
 }
 
@@ -28,17 +51,29 @@ declare global {
     prototype: HTMLPwcChatElement;
     new (): HTMLPwcChatElement;
   };
+
+  interface HTMLPwcChatItemElement extends Components.PwcChatItem, HTMLStencilElement {}
+  var HTMLPwcChatItemElement: {
+    prototype: HTMLPwcChatItemElement;
+    new (): HTMLPwcChatItemElement;
+  };
   interface HTMLElementTagNameMap {
     'pwc-chat': HTMLPwcChatElement;
+    'pwc-chat-item': HTMLPwcChatItemElement;
   }
 }
 
 declare namespace LocalJSX {
   interface PwcChat {
+    'cancelButtonName'?: string;
+    'createdLabelNameProducer'?: (createdDate: string) => string;
+    'deleteButtonName'?: string;
+    'editButtonName'?: string;
+    'editedLabelNameProducer'?: (editedDate: string) => string;
     'fullMessage'?: string;
     'inputValue'?: any;
     'listContainerId'?: string;
-    'messageList'?: any;
+    'messageList'?: IMessageItem[];
     /**
     * onChange method for text input
     */
@@ -47,12 +82,31 @@ declare namespace LocalJSX {
     * onSubmit method for text input
     */
     'onSubmitMessage'?: (event: CustomEvent<any>) => void;
+    'saveButtonName'?: string;
     'submitButtonName'?: string;
     'submitButtonPlaceholder'?: string;
+  }
+  interface PwcChatItem {
+    'cancelButtonName'?: string;
+    'createdLabelNameProducer'?: (createdDate: string) => string;
+    'deletable'?: boolean;
+    'deleteButtonName'?: string;
+    'editButtonName'?: string;
+    'editTime'?: string;
+    'editable'?: boolean;
+    'editedLabelNameProducer'?: (editedDate: string) => string;
+    'message'?: string;
+    'messageId'?: string;
+    'onMessageDeleted'?: (event: CustomEvent<{ messageId: string }>) => void;
+    'onMessageEdited'?: (event: CustomEvent<{ messageId: string, newMessage: string }>) => void;
+    'saveButtonName'?: string;
+    'time'?: string;
+    'username'?: string;
   }
 
   interface IntrinsicElements {
     'pwc-chat': PwcChat;
+    'pwc-chat-item': PwcChatItem;
   }
 }
 
@@ -63,6 +117,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'pwc-chat': LocalJSX.PwcChat & JSXBase.HTMLAttributes<HTMLPwcChatElement>;
+      'pwc-chat-item': LocalJSX.PwcChatItem & JSXBase.HTMLAttributes<HTMLPwcChatItemElement>;
     }
   }
 }

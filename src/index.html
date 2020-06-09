@@ -18,8 +18,51 @@
   </style>
   <body>
     <div style="height:500px">
-      <pwc-chat first="Stencil" last="'Don't call me a framework' JS">
-      </pwc-chat>
+      <pwc-chat></pwc-chat>
     </div>
+
+    <script>
+      let messageIdCounter = 0;
+      let messages = [];
+      const chatInstance = document.querySelector("pwc-chat");
+      chatInstance.addEventListener("submitMessage", e => {
+        const message = e.detail.fullMessage;
+        const messageObj = {
+          messageId: messageIdCounter++,
+          message,
+          username: "Tom Chandler",
+          time: `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`,
+          editable: true,
+          deletable: true
+        }
+        messages = [...messages, messageObj];
+        chatInstance.messageList = messages;
+      });
+
+      chatInstance.addEventListener("messageDeleted", e => {
+        const deletedMessageId = e.detail.messageId;
+        console.log("delete messageId:", deletedMessageId);
+        messages.splice(messages.findIndex(m => m.messageId == deletedMessageId), 1);
+        chatInstance.messageList = [...messages];
+      });
+
+      chatInstance.addEventListener("messageEdited", e => {
+        const editedMessageId = e.detail.messageId;
+        const newMessage = e.detail.newMessage;
+        console.log("edit messageId:", editedMessageId, "newMessage:", newMessage);
+        const messageIndex = messages.findIndex(m => m.messageId == editedMessageId);
+        messages[messageIndex].message = newMessage;
+        messages[messageIndex].editTime = `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`;
+        chatInstance.messageList = [...messages];
+      });
+
+      /* Below are how to override texts for localization */
+      // chatInstance.editButtonName = "edit button custom text";
+      // chatInstance.deleteButtonName = "delete button custom text";
+      // chatInstance.saveButtonName = "save button custom text";
+      // chatInstance.cancelButtonName = "cancel button custom text";
+      // chatInstance.createdLabelNameProducer = (t) => `${t} (created cutsom text)`;
+      // chatInstance.editedLabelNameProducer = (t) => `${t} (edited custom text)`;
+    </script>
   </body>
 </html>

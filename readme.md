@@ -58,8 +58,16 @@ Message List should be this format:
 
 ```json
 [
-  { username: "", message: "" },
-];
+  {
+    "messageId": "0",
+    "username": "Tom Chandler",
+    "message": "Hello World!",
+    "time": "2 days ago",
+    "editTime": null,
+    "editable": true,
+    "deletable": false
+  }
+]
 ```
 
 #### Here is the example
@@ -70,35 +78,49 @@ Message List should be this format:
   submitMessage={fullText => console.log("onSubmit: ", fullText)}
   messageList={[
     {
+      messageId: "0",
       username: "Leo",
       message: "No Content",
-      time: "3 hours ago"
+      time: "3 hours ago",
+      editTime: null,
+      editable: true,
+      deletable: true
     },
     {
+      messageId: "125",
       username: "Mia",
       message:
         "Aliquam tempor, mi a elementum molestie, mauris augue congue ipsum, eget suscipit ligula eros a tortor. Nullam dictum ac nibh at eleifend. Fusce iaculis mauris turpis, eu facilisis ante porta sed. Quisque faucibus felis id justo aliquet, ut viverra purus ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut elit elit, imperdiet ac eros sit amet, tincidunt euismod leo. Ut consectetur nulla a mauris vehicula, in ultrices nisl semper.",
-      time: "1 hour ago"
+      time: "1 hour ago",
+      editTime: "30 minutes ago",
+      editable: false,
+      deletable: false
     },
     {
+      messageId: "3",
       username: "George",
       message: "Pellentesque luctus purus magna.",
-      time: ""
+      time: "",
+      editTime: null,
+      editable: true,
+      deletable: false
     },
     {
+      messageId: "id-9876",
       username: "Leo",
       message: "No Content",
-      time: "3 weeks ago"
+      time: "3 weeks ago",
+      editTime: "just now",
+      editable: false,
+      deletable: true
     }
   ]}
 ></pwc-chat>
 ```
 
-## Checkbox onCheckChange Listener Usage
+## Events
 
 ### JS Way
-
-This is just an example from pwc-chat, you need to change it!
 
 ```js
 // onChangeMessage
@@ -106,23 +128,34 @@ const pwcChat = document.querySelector("pwc-chat");
 pwcChat.addEventListener("changeMessage", text => {
   console.log("Chat Text: ", text);
 });
+
 // onSubmitMessage
 pwcChat.addEventListener("submitMessage", fullText => {
   console.log("Chat onSubmit: ", fullText);
+});;
+
+// onMessageDeleted
+pwcChat.addEventListener("messageDeleted", e => {
+  const deletedMessageId = e.detail.messageId;
+  console.log("delete messageId:", deletedMessageId);
+});
+
+// onMessageEdited
+pwcChat.addEventListener("messageEdited", e => {
+  const editedMessageId = e.detail.messageId;
+  const newMessage = e.detail.newMessage;
+  console.log("edit messageId:", editedMessageId, "newMessage:", newMessage);
 });
 ```
 
-## Future Plans
-
-- [x] ~~Documentation~~
-- [x] ~~LICENSE~~
-
 ## Authors
 
-FreakyCoder, kurayogun@gmail.com | kuray.ogun@paraboly.com
+[FreakyCoder](https://github.com/WrathChaos), kurayogun@gmail.com | kuray.ogun@paraboly.com
+
+[starikcetin](https://github.com/starikcetin), cetinsamedtarik@gmail.com | tarik.cetin@paraboly.com
 
 ## License
 
 WebComponent PWC Chat is available under the MIT license.
 
-See the LICENSE file for more info.
+See the [LICENSE](/LICENCE) file for more info.

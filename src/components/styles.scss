@@ -22,6 +22,14 @@
 .box p {
   font-size: 0.85rem;
   padding-top: 0.75rem;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.box textarea {
+  resize: vertical;
+  padding: 10px;
+  min-height: 150px;
 }
 
 .box .time {
@@ -29,6 +37,25 @@
   margin-top: auto;
   color: #b9b9b9;
   margin-left: auto;
+}
+
+.toolbox {
+  width: fit-content;
+  position: absolute;
+  padding-right: inherit;
+  right: 0;
+
+  button + button {
+    margin-left: 10px;
+  }
+}
+
+.editing-toolbox {
+  padding-top: 0.75rem;
+
+  button + button {
+    margin-left: 10px;
+  }
 }
 
 .header-container {
@@ -46,6 +73,33 @@
   padding: 12px 16px;
   border: 1px solid #e7eaec;
   background-color: #f5f5f5;
+}
+
+.small-btn {
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 15px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  transition: all ease 240ms;
+  background-color: lighten(rgba(125, 141, 243, 1), 5%);
+
+  &:hover {
+    transform: translateY(-3px);
+    background-color: rgba(125, 141, 243, 1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .input {
@@ -154,6 +208,64 @@
       position: absolute;
       border-radius: 2px;
       box-shadow: 0px 2px 10px #a3aadb;
+    }
+  }
+}
+
+.edit-input {
+  display: flex;
+  position: relative;
+
+  .edit-input-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+
+    .edit-input-field {
+      z-index: 0;
+      width: 100%;
+      padding: 12px;
+      line-height: 1.5;
+      border: solid 1px #ddd;
+      outline: none;
+      color: #3b4378;
+      background-color: #fff;
+      -webkit-tap-highlight-color: transparent;
+
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #b7bcdd;
+        opacity: 1; /* Firefox */
+      }
+
+      &::-webkit-input-placeholder {
+        padding-top: 2px;
+      }
+
+      &:hover + .edit-input-field-shadow {
+        box-shadow: 0px 2px 10px #d8ddec;
+      }
+
+      &:focus + .edit-input-field-shadow {
+        outline: 0;
+        left: 2%;
+        width: 97%;
+        height: 50%;
+        box-shadow: 0px 8px 14px #d8ddec;
+      }
+    }
+
+    .edit-input-field-shadow {
+      left: 1%;
+      bottom: 0;
+      width: 99%;
+      height: 95%;
+      z-index: -10;
+      display: flex;
+      position: absolute;
+      border-radius: 12px;
+      transition: all ease 240ms;
+      box-shadow: 0px 0px 5px #d8ddec;
     }
   }
 }
