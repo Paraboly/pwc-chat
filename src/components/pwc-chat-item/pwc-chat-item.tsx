@@ -87,7 +87,7 @@ export class ChatItem implements IMessageItem {
     if (this.editTime) {
       return [
         <span class="time">{this.createdLabelNameProducer(this.time)}</span>,
-        <span class="time">{this.editedLabelNameProducer(this.time)}</span>
+        <span class="time">{this.editedLabelNameProducer(this.editTime)}</span>
       ];
     } else {
       return <span class="time">{this.time}</span>;
