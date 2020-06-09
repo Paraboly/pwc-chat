@@ -35,8 +35,8 @@ export namespace Components {
     'editTime'?: string;
     'editable': boolean;
     'editedLabelNameProducer': (editedDate: string) => string;
-    'id': string;
     'message': string;
+    'messageId': string;
     'saveButtonName': string;
     'time': string;
     'username': string;
@@ -95,10 +95,10 @@ declare namespace LocalJSX {
     'editTime'?: string;
     'editable'?: boolean;
     'editedLabelNameProducer'?: (editedDate: string) => string;
-    'id'?: string;
     'message'?: string;
-    'onMessageDeleted'?: (event: CustomEvent<{ id: string }>) => void;
-    'onMessageEdited'?: (event: CustomEvent<{ id: string, newMessage: string }>) => void;
+    'messageId'?: string;
+    'onMessageDeleted'?: (event: CustomEvent<{ messageId: string }>) => void;
+    'onMessageEdited'?: (event: CustomEvent<{ messageId: string, newMessage: string }>) => void;
     'saveButtonName'?: string;
     'time'?: string;
     'username'?: string;

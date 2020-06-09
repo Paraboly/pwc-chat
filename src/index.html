@@ -22,13 +22,13 @@
     </div>
 
     <script>
-      let idCounter = 0;
+      let messageIdCounter = 0;
       let messages = [];
       const chatInstance = document.querySelector("pwc-chat");
       chatInstance.addEventListener("submitMessage", e => {
         const message = e.detail.fullMessage;
         const messageObj = {
-          id: idCounter++,
+          messageId: messageIdCounter++,
           message,
           username: "Tom Chandler",
           time: `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`,
@@ -40,17 +40,17 @@
       });
 
       chatInstance.addEventListener("messageDeleted", e => {
-        const deletedId = e.detail.id;
-        console.log("delete id:", deletedId);
-        messages.splice(messages.findIndex(m => m.id == deletedId), 1);
+        const deletedMessageId = e.detail.messageId;
+        console.log("delete messageId:", deletedMessageId);
+        messages.splice(messages.findIndex(m => m.messageId == deletedMessageId), 1);
         chatInstance.messageList = [...messages];
       });
 
       chatInstance.addEventListener("messageEdited", e => {
-        const editedId = e.detail.id;
+        const editedMessageId = e.detail.messageId;
         const newMessage = e.detail.newMessage;
-        console.log("edit id:", editedId, "newMessage:", newMessage);
-        const messageIndex = messages.findIndex(m => m.id == editedId);
+        console.log("edit messageId:", editedMessageId, "newMessage:", newMessage);
+        const messageIndex = messages.findIndex(m => m.messageId == editedMessageId);
         messages[messageIndex].message = newMessage;
         messages[messageIndex].editTime = `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`;
         chatInstance.messageList = [...messages];

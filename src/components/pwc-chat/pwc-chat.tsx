@@ -1,4 +1,4 @@
-import { Component, Event, Prop, h, EventEmitter, Listen } from "@stencil/core";
+import { Component, Event, Prop, h, EventEmitter } from "@stencil/core";
 import { IMessageItem } from "../types/IMessageItem";
 
 @Component({

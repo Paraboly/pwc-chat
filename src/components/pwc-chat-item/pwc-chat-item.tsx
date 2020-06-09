@@ -9,7 +9,7 @@ import { IMessageItem } from "../types/IMessageItem"
 export class ChatItem implements IMessageItem {
     private editInputField: HTMLTextAreaElement;
 
-    @Prop() id: string;
+    @Prop() messageId: string;
     @Prop() username: string;
     @Prop() message: string;
     @Prop() time: string;
@@ -26,25 +26,25 @@ export class ChatItem implements IMessageItem {
 
     @State() isEditing: boolean;
 
-    @Event() messageDeleted: EventEmitter<{ id: string }>;
-    @Event() messageEdited: EventEmitter<{ id: string, newMessage: string }>;
+    @Event() messageDeleted: EventEmitter<{ messageId: string }>;
+    @Event() messageEdited: EventEmitter<{ messageId: string, newMessage: string }>;
 
-    editOnClick(e: MouseEvent): void {
+    editOnClick(_e: MouseEvent): void {
         this.isEditing = true;
     }
 
-    deleteOnClick(e: MouseEvent): void {
-        this.messageDeleted.emit({ id: this.id });
+    deleteOnClick(_e: MouseEvent): void {
+        this.messageDeleted.emit({ messageId: this.messageId });
     }
 
-    saveOnClick(e: MouseEvent): void {
+    saveOnClick(_e: MouseEvent): void {
         const newMessage = this.editInputField.value;
         this.isEditing = false;
         this.message = newMessage;
-        this.messageEdited.emit({ id: this.id, newMessage });
+        this.messageEdited.emit({ messageId: this.messageId, newMessage });
     }
 
-    cancelOnClick(e: MouseEvent): void {
+    cancelOnClick(_e: MouseEvent): void {
         this.isEditing = false;
     }
 
