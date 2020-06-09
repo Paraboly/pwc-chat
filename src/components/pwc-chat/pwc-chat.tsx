@@ -15,13 +15,16 @@ export class Chat {
   @Prop() listContainerId: string = "list-container-id";
 
   @Prop() submitButtonName: string = "Send";
-  @Prop() submitButtonPlaceholder: string = "You can write your message in here...";
+  @Prop() submitButtonPlaceholder: string =
+    "You can write your message in here...";
   @Prop() editButtonName: string = "Edit";
   @Prop() deleteButtonName: string = "Delete";
   @Prop() saveButtonName: string = "Save";
   @Prop() cancelButtonName: string = "Cancel";
-  @Prop() createdLabelNameProducer: (createdDate: string) => string = (date) => `Created ${date}`;
-  @Prop() editedLabelNameProducer: (editedDate: string) => string = (date) => `Edited ${date}`;
+  @Prop() createdLabelNameProducer: (createdDate: string) => string = date =>
+    `Created ${date}`;
+  @Prop() editedLabelNameProducer: (editedDate: string) => string = date =>
+    `Edited ${date}`;
 
   /**
    * onChange method for text input
