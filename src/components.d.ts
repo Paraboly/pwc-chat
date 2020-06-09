@@ -98,7 +98,10 @@ declare namespace LocalJSX {
     'message'?: string;
     'messageId'?: string;
     'onMessageDeleted'?: (event: CustomEvent<{ messageId: string }>) => void;
-    'onMessageEdited'?: (event: CustomEvent<{ messageId: string, newMessage: string }>) => void;
+    'onMessageEdited'?: (event: CustomEvent<{
+      messageId: string;
+      newMessage: string;
+    }>) => void;
     'saveButtonName'?: string;
     'time'?: string;
     'username'?: string;
