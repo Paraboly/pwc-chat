@@ -9,7 +9,7 @@
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   IMessageItem,
-} from './components/pwc-chat/IMessageItem';
+} from './components/types/IMessageItem';
 
 export namespace Components {
   interface PwcChat {
