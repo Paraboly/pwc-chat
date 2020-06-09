@@ -9,13 +9,19 @@ import { IMessageItem } from "./IMessageItem";
 export class Chat {
   textInputRef: HTMLInputElement;
 
-  @Prop() submitButtonName: string = "Send";
-  @Prop() submitButtonPlaceholder: string =
-    "You can write your message in here...";
   @Prop() fullMessage: string = null;
   @Prop() messageList: IMessageItem[] = [];
   @Prop() inputValue: any = "";
   @Prop() listContainerId: string = "list-container-id";
+
+  @Prop() submitButtonName: string = "Send";
+  @Prop() submitButtonPlaceholder: string = "You can write your message in here...";
+  @Prop() editButtonName: string = "Edit";
+  @Prop() deleteButtonName: string = "Delete";
+  @Prop() saveButtonName: string = "Save";
+  @Prop() cancelButtonName: string = "Cancel";
+  @Prop() createdLabelNameProducer: (createdDate: string) => string = (date) => `Created ${date}`;
+  @Prop() editedLabelNameProducer: (editedDate: string) => string = (date) => `Edited ${date}`;
 
   /**
    * onChange method for text input
@@ -56,6 +62,12 @@ export class Chat {
       return (
         <pwc-chat-item
           {...item}
+          editButtonName={this.editButtonName}
+          deleteButtonName={this.deleteButtonName}
+          saveButtonName={this.saveButtonName}
+          cancelButtonName={this.cancelButtonName}
+          createdLabelNameProducer={this.createdLabelNameProducer}
+          editedLabelNameProducer={this.editedLabelNameProducer}
         ></pwc-chat-item>
       );
     });

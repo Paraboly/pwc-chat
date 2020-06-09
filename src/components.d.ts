@@ -13,19 +13,31 @@ import {
 
 export namespace Components {
   interface PwcChat {
+    'cancelButtonName': string;
+    'createdLabelNameProducer': (createdDate: string) => string;
+    'deleteButtonName': string;
+    'editButtonName': string;
+    'editedLabelNameProducer': (editedDate: string) => string;
     'fullMessage': string;
     'inputValue': any;
     'listContainerId': string;
     'messageList': IMessageItem[];
+    'saveButtonName': string;
     'submitButtonName': string;
     'submitButtonPlaceholder': string;
   }
   interface PwcChatItem {
+    'cancelButtonName': string;
+    'createdLabelNameProducer': (createdDate: string) => string;
     'deletable': boolean;
+    'deleteButtonName': string;
+    'editButtonName': string;
     'editTime'?: string;
     'editable': boolean;
+    'editedLabelNameProducer': (editedDate: string) => string;
     'id': string;
     'message': string;
+    'saveButtonName': string;
     'time': string;
     'username': string;
   }
@@ -53,6 +65,11 @@ declare global {
 
 declare namespace LocalJSX {
   interface PwcChat {
+    'cancelButtonName'?: string;
+    'createdLabelNameProducer'?: (createdDate: string) => string;
+    'deleteButtonName'?: string;
+    'editButtonName'?: string;
+    'editedLabelNameProducer'?: (editedDate: string) => string;
     'fullMessage'?: string;
     'inputValue'?: any;
     'listContainerId'?: string;
@@ -65,17 +82,24 @@ declare namespace LocalJSX {
     * onSubmit method for text input
     */
     'onSubmitMessage'?: (event: CustomEvent<any>) => void;
+    'saveButtonName'?: string;
     'submitButtonName'?: string;
     'submitButtonPlaceholder'?: string;
   }
   interface PwcChatItem {
+    'cancelButtonName'?: string;
+    'createdLabelNameProducer'?: (createdDate: string) => string;
     'deletable'?: boolean;
+    'deleteButtonName'?: string;
+    'editButtonName'?: string;
     'editTime'?: string;
     'editable'?: boolean;
+    'editedLabelNameProducer'?: (editedDate: string) => string;
     'id'?: string;
     'message'?: string;
     'onMessageDeleted'?: (event: CustomEvent<{ id: string }>) => void;
     'onMessageEdited'?: (event: CustomEvent<{ id: string, newMessage: string }>) => void;
+    'saveButtonName'?: string;
     'time'?: string;
     'username'?: string;
   }

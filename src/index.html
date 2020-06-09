@@ -55,6 +55,14 @@
         messages[messageIndex].editTime = `${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}`;
         chatInstance.messageList = [...messages];
       });
+
+      /* Below are how to override texts for localization */
+      // chatInstance.editButtonName = "edit button custom text";
+      // chatInstance.deleteButtonName = "delete button custom text";
+      // chatInstance.saveButtonName = "save button custom text";
+      // chatInstance.cancelButtonName = "cancel button custom text";
+      // chatInstance.createdLabelNameProducer = (t) => `${t} (created cutsom text)`;
+      // chatInstance.editedLabelNameProducer = (t) => `${t} (edited custom text)`;
     </script>
   </body>
 </html>

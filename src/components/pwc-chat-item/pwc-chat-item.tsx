@@ -17,6 +17,13 @@ export class ChatItem implements IMessageItem {
     @Prop() editable: boolean;
     @Prop() deletable: boolean;
 
+    @Prop() editButtonName: string;
+    @Prop() deleteButtonName: string;
+    @Prop() saveButtonName: string;
+    @Prop() cancelButtonName: string;
+    @Prop() createdLabelNameProducer: (createdDate: string) => string;
+    @Prop() editedLabelNameProducer: (editedDate: string) => string;
+
     @State() isEditing: boolean;
 
     @Event() messageDeleted: EventEmitter<{ id: string }>;
@@ -55,8 +62,8 @@ export class ChatItem implements IMessageItem {
                     </div>
                 </div>,
                 <div class="editing-toolbox">
-                    <button class="small-btn" onClick={this.saveOnClick.bind(this)}>Save</button>
-                    <button class="small-btn" onClick={this.cancelOnClick.bind(this)}>Cancel</button>
+                    <button class="small-btn" onClick={this.saveOnClick.bind(this)}>{this.saveButtonName}</button>
+                    <button class="small-btn" onClick={this.cancelOnClick.bind(this)}>{this.cancelButtonName}</button>
                 </div>
             ];
         } else {
@@ -64,17 +71,28 @@ export class ChatItem implements IMessageItem {
         }
     }
 
+    renderTime() {
+        if (this.editTime) {
+            return [
+                <span class="time">{this.createdLabelNameProducer(this.time)}</span>,
+                <span class="time">{this.editedLabelNameProducer(this.time)}</span>
+            ]
+        }
+        else {
+            return <span class="time">{this.time}</span>;
+        }
+    }
+
     render() {
         return (
             <div class="box">
                 {!this.isEditing && <div class="toolbox">
-                    {this.editable && <button class="small-btn" onClick={this.editOnClick.bind(this)}>Edit</button>}
-                    {this.deletable && <button class="small-btn" onClick={this.deleteOnClick.bind(this)}>Delete</button>}
+                    {this.editable && <button class="small-btn" onClick={this.editOnClick.bind(this)}>{this.editButtonName}</button>}
+                    {this.deletable && <button class="small-btn" onClick={this.deleteOnClick.bind(this)}>{this.deleteButtonName}</button>}
                 </div>}
                 <h2>{this.username}</h2>
                 {this.renderBody()}
-                <span class="time">{this.editTime && "Created "}{this.time}</span>
-                {this.editTime && <span class="time">Edited {this.editTime}</span>}
+                {this.renderTime()}
             </div>
         );
     }
