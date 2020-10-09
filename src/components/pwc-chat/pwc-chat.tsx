@@ -1,4 +1,4 @@
-import { Component, Event, Prop, h, EventEmitter } from "@stencil/core";
+import { Component, Event, Prop, h, EventEmitter, Listen } from "@stencil/core";
 import { IMessageItem } from "../types/IMessageItem";
 
 @Component({
@@ -52,6 +52,12 @@ export class Chat {
     cancelable: true
   })
   onSubmitEmitter: EventEmitter;
+
+  @Listen('keydown')
+  handleEnter(ev) {
+      if(ev.key === "Enter" && this.fullMessage && this.fullMessage.length)
+        this.onSubmitHandler();
+  }
 
   onSubmitHandler() {
     this.onSubmitEmitter.emit({ fullMessage: this.fullMessage });
